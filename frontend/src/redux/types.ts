@@ -1,11 +1,12 @@
+import { ACCOUNT_ROLE } from 'src/constants';
 
 export interface AuthState {
-    userId: number,
-    userName: string,
+    userId: number;
+    userName: string;
+    role?: ACCOUNT_ROLE;
 }
 
-export interface AppState {
-}
+export interface AppState {}
 
 export interface StoreState {
     // app: AppState;

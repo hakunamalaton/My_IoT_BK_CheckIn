@@ -21,7 +21,7 @@ const App = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<LayoutApp />} />
+            <Route path="/*" element={<LayoutApp />} />
         </Routes>
     );
 };

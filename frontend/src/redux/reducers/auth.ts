@@ -4,6 +4,7 @@ import { AuthState } from '../types';
 const defaultState: AuthState = {
     userId: 0,
     userName: '',
+    role: 0,
 };
 
 const authReducer = (state = defaultState, action) => {

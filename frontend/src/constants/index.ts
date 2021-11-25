@@ -4,7 +4,6 @@ export const IS_PRODUCTION = process.env.REACT_APP_ENV === 'production';
 export const DOMAIN = document.location.origin;
 
 export enum ACCOUNT_ROLE {
-    STUDENT = 1,
-    TEACHER = 2,
-    ADMIN = 3,
+    USER = 1,
+    ADMIN = 2,
 }
