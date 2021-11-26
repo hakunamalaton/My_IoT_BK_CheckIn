@@ -1,0 +1,32 @@
+{
+  "name": "bk_iot_checkin",
+  "version": "1.0.0",
+  "description": "Repo API & Back-end for BK_IoT_Checkin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimodayne/vaccination-info-management-system.git"
+  },
+  "keywords": [
+    "BachKhoa",
+    "IoT",
+    "Ho",
+    "Chi",
+    "Minh",
+    "Check",
+    "In",
+    "Temperature"
+  ],
+  "author": "Lam Thien Toan, Le Dinh Luan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimodayne/vaccination-info-management-system/issues"
+  },
+  "homepage": "https://github.com/jimodayne/vaccination-info-management-system#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
