@@ -4,6 +4,7 @@
   "description": "Repo API & Back-end for BK_IoT_Checkin",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,5 +29,9 @@
   "homepage": "https://github.com/jimodayne/vaccination-info-management-system#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
   }
 }
