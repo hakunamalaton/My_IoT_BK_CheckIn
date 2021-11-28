@@ -4,11 +4,15 @@ export interface AuthState {
     userId: number;
     userName: string;
     role?: ACCOUNT_ROLE;
+    loginError: string;
+    loginLoading: boolean;
 }
 
-export interface AppState {}
+export interface AppState {
+    isAppLoading: boolean;
+}
 
 export interface StoreState {
-    // app: AppState;
+    app: AppState;
     auth: AuthState;
 }

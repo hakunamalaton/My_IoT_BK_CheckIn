@@ -4,6 +4,7 @@ import { IRoute } from 'src/routes';
 import { lazy } from 'react';
 
 const FeedbackModule = lazy(() => import('../modules/feedback'));
+const DashboardModule = lazy(() => import('../modules/dashboard'));
 
 export const ROUTE = {
     USER_INFO: '/userInfo',
@@ -12,6 +13,7 @@ export const ROUTE = {
     SEARCH_AND_CHECK_IN: '/checkIn',
     SETTING: '/setting',
     IOT: '/iot',
+    DASHBOARD: '/',
 };
 
 export const USER_MENU: IMenu[] = [
@@ -57,6 +59,11 @@ export const ADMIN_MENU: IMenu[] = [
 ];
 
 export const mainRoutes: IRoute[] = [
+    {
+        path: ROUTE.DASHBOARD,
+        name: 'Dashboard',
+        component: DashboardModule,
+    },
     {
         path: ROUTE.CENSOR_FEEDBACK,
         name: 'feedback',

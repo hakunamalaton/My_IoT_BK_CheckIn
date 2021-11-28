@@ -13,6 +13,7 @@ function AuthRoute(props: AuthProps) {
     const { isLogged } = useAuth();
 
     if (!isLogged) {
+        console.log('Not logged', isLogged);
         return (
             <Navigate
                 to={{

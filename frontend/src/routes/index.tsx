@@ -41,7 +41,7 @@ export function renderRoutes(routes: IRoute[], role?: ACCOUNT_ROLE) {
     return (
         <Suspense fallback={<LoadingBar />}>
             <Routes>
-                {routes.map((route) => {
+                {routes.map(route => {
                     return renderRoute(route, role);
                 })}
             </Routes>
@@ -77,10 +77,10 @@ export function getRouteList(routes): IRoute[] {
 export function findRoutesByPaths(
     pathList: string[],
     routeList: IRoute[],
-    basename?: string
+    basename?: string,
 ): IRoute[] {
     return routeList.filter(
-        (child: IRoute) => pathList.indexOf((basename || '') + child.path) !== -1
+        (child: IRoute) => pathList.indexOf((basename || '') + child.path) !== -1,
     );
 }
 

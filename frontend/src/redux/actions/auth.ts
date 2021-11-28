@@ -1,36 +1,38 @@
-import { ACCOUNT_ROLE, DOMAIN_API_URL } from 'src/constants';
-// import AuthService from 'src/modules/common/service';
+import AuthService from 'src/modules/login/service';
+import { setLoadingApp } from './app';
 
 export const SET_USER_INFO = 'SET_USER_INFO';
 export const LOG_OUT = 'LOG_OUT';
-export const SET_ACCOUNT = 'SET_ACCOUNT';
+export const SET_LOADING_LOGIN = 'SET_LOADING_LOGIN';
 
 export const setUserInfo = user => ({
     type: SET_USER_INFO,
     payload: user,
 });
 
-export const setAccount = accountId => ({
-    type: SET_ACCOUNT,
-    payload: accountId,
+export const setLoadingLogin = loading => ({
+    type: SET_LOADING_LOGIN,
+    payload: loading,
 });
 
 export const getSession = async dispatch => {
+    dispatch(setLoadingApp(true));
     try {
-        // let localAccount = {};
-        // const res = await AuthService.getSession();
-        const userInfo = await new Promise(resolve => {
-            setTimeout(() => {
-                resolve({
-                    userName: 'Thinh Tran',
-                    userId: 1659999,
-                    role: ACCOUNT_ROLE.ADMIN,
-                });
-            }, 0);
-        });
-
+        const userInfo = await AuthService.getSession();
         dispatch(setUserInfo(userInfo));
     } catch (err) {
         // AuthService.login();
+        // window.location.pathname = '/login';
     }
+    dispatch(setLoadingApp(false));
+};
+
+export const loginApp = (userName: string, password: string) => async dispatch => {
+    dispatch(setLoadingLogin(true));
+    try {
+        const res = await AuthService.login(userName, password);
+        dispatch(setUserInfo(res));
+    } catch (err) {}
+
+    dispatch(setLoadingLogin(false));
 };
