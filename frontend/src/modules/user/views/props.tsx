@@ -1,3 +1,4 @@
+import { ColumnsType } from 'antd/lib/table';
 import dayjs from 'dayjs';
 import { IMetaFormBuilder } from 'src/components/form/FormBuilder/FormBuilder';
 
@@ -21,3 +22,14 @@ export const metaUserForm: IMetaFormBuilder = {
         },
     ],
 };
+
+export const columnsUserHistory: ColumnsType<any> = [
+    {
+        title: 'Id',
+        dataIndex: 'id',
+    },
+    {
+        title: 'Tên địa điểm',
+        dataIndex: 'name',
+    },
+];

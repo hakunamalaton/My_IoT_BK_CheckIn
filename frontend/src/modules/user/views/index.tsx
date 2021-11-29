@@ -3,8 +3,9 @@ import { useAsyncFn } from 'react-use';
 import Card from 'src/components/card';
 import FormBuilder from 'src/components/form/FormBuilder';
 import UserService from '../service';
-import { metaUserForm } from './props';
+import { columnsUserHistory, metaUserForm } from './props';
 import { Form } from 'antd';
+import BaseTable from 'src/components/tables';
 
 const UserView = () => {
     const [form] = Form.useForm();
@@ -27,6 +28,16 @@ const UserView = () => {
             </Form>
 
             <h3>Địa điểm đã check-in</h3>
+            <BaseTable
+                idKey="id"
+                data={{
+                    items: [
+                        { id: 1, name: 'Địa điểm 1' },
+                        { id: 2, name: 'Địa điểm 2' },
+                    ],
+                }}
+                columns={columnsUserHistory}
+            />
         </Card>
     );
 };

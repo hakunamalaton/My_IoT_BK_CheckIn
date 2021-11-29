@@ -24,7 +24,6 @@ export interface BaseTableProps<T> extends TableProps<T> {
     data?: BaseTableData<T>;
     enableID?: boolean;
     compact?: boolean;
-    // enableSort?: boolean;
     onChange?: (page: PaginationProps) => void;
     handleOnDrop?: (...args) => void;
     disablePagination?: boolean;
@@ -36,15 +35,7 @@ export interface BaseTableProps<T> extends TableProps<T> {
 
 const BaseTable = <T extends object>(props: BaseTableProps<T>) => {
     const {
-        data: {
-            items,
-            total,
-            currentPage,
-            pageSize = 8,
-            isLoading,
-            isFetched = true,
-            isFilterChanged,
-        } = {},
+        data: { items, total, currentPage, pageSize = 8, isLoading, isFetched = true } = {},
         idKey = 'id',
         columns,
         compact,
@@ -95,24 +86,12 @@ const BaseTable = <T extends object>(props: BaseTableProps<T>) => {
         });
     }
 
-    // if (enableSort) {
-    //     rest['components'] = {
-    //         body: {
-    //             wrapper: props => <DragContainer handleOnDrop={handleOnDrop} {...props} />,
-    //             row: DragableBodyRow,
-    //         },
-    //     };
-    // }
-
     if (isLoading && !isFetched) return <SkeletonTable {...rest} rowCount={10} columns={columns} />;
 
     return (
         <Table
             {...rest}
             className={`${className} ${minHeight ? 'min_height_' + minHeight : ''}`}
-            // locale={{
-            //     emptyText: args => <EmptyContent {...args} isFilterChanged={isFilterChanged} />,
-            // }}
             size={compact ? 'small' : undefined}
             columns={columns}
             onChange={onTableChange}
