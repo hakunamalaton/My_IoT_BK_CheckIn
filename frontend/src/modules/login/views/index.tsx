@@ -1,6 +1,6 @@
 import { Form, Input, Button, Checkbox, Typography, Alert } from 'antd';
 import { useEffect } from 'react';
-import { Navigate } from 'react-router';
+import { Navigate, useLocation, useNavigate } from 'react-router';
 import useAuth from 'src/hooks/useAuth';
 import { ROUTE } from 'src/layout/props';
 import './style.less';
@@ -9,15 +9,19 @@ const { Title } = Typography;
 
 const LoginView = () => {
     const [form] = Form.useForm();
+    const navigate = useNavigate();
     const { login, loginError, isLogged, isLoading } = useAuth();
 
     const onFinish = (values: any) => {
         login(values);
     };
+    const location = useLocation();
 
-    if (isLogged) {
-        return <Navigate to={ROUTE.DASHBOARD} />;
-    }
+    useEffect(() => {
+        if (isLogged) {
+            navigate(location.state || '/');
+        }
+    }, [isLogged]);
 
     return (
         <div className="login-view">

@@ -29,12 +29,12 @@ const LayoutApp = () => {
     const { authState } = useAuth();
     const MENU = useMemo(() => {
         switch (authState.role) {
-            case ACCOUNT_ROLE.USER:
-                return USER_MENU;
-            case ACCOUNT_ROLE.ADMIN:
-                return ADMIN_MENU;
+            // case ACCOUNT_ROLE.USER:
+            //     return USER_MENU;
+            // case ACCOUNT_ROLE.ADMIN:
+            //     return ADMIN_MENU;
             default:
-                return [];
+                return [...USER_MENU, ...ADMIN_MENU];
         }
     }, [authState.role]);
 

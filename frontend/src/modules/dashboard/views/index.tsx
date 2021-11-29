@@ -1,9 +1,7 @@
+import Card from 'src/components/card';
+
 const DashboardView = () => {
-    return (
-        <div>
-            <h1>Dashboard</h1>
-        </div>
-    );
+    return <Card title="Dashboard"></Card>;
 };
 
 export default DashboardView;
