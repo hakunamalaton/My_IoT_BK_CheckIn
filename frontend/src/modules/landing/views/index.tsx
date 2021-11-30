@@ -17,7 +17,7 @@ const LandingView = () => {
 
             <div className="body container">
                 <div className="text-wrapper">
-                    <h3>IoT Checkin</h3>
+                    <h3>IoT Check-in</h3>
                     <p className="subTitle">Trường Đại học Bách khoa - Đại học Quốc gia TP.HCM</p>
                     <p
                         className="content"
