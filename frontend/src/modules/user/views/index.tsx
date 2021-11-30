@@ -17,15 +17,18 @@ const UserView = () => {
 
     useEffect(() => {
         if (state.value) {
-            form.setFieldsValue(state.value);
+            console.log('state.value', state.value);
+            form.setFieldsValue({ ...state.value });
         }
-    }, [state.value]);
+    }, [state.value, form]);
+
+    if (!state.value) return null;
 
     return (
         <Card title="Thông tin cá nhân">
-            <Form form={form}>
+            {/* <Form form={form}>
                 <FormBuilder form={form} viewMode meta={metaUserForm} />
-            </Form>
+            </Form> */}
 
             <h3>Địa điểm đã check-in</h3>
             <BaseTable
