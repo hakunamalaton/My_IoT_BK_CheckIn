@@ -1,12 +1,16 @@
 import { Layout, Menu } from 'antd';
 import { UserOutlined, VideoCameraOutlined, UploadOutlined } from '@ant-design/icons';
 import useAuth from 'src/hooks/useAuth';
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useEffect, useMemo } from 'react';
 import { ACCOUNT_ROLE } from 'src/constants';
 import { USER_MENU, ADMIN_MENU, mainRoutes } from './props';
 import './style.less';
 import { Link } from 'react-router-dom';
 import { renderRoutes } from 'src/routes';
+import { useSelector, useDispatch } from 'react-redux';
+import Loading from 'src/components/loading';
+import { getSession } from 'src/redux/actions/auth';
+import { isAppLoadingSelector } from 'src/redux/selectors/app';
 
 const { Header, Sider, Content } = Layout;
 
@@ -27,6 +31,14 @@ export type IMenu = {
 
 const LayoutApp = () => {
     const { authState } = useAuth();
+
+    const isAppLoading = useSelector(isAppLoadingSelector);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getSession);
+    }, []);
+
     const MENU = useMemo(() => {
         switch (authState.role) {
             // case ACCOUNT_ROLE.USER:
@@ -37,6 +49,8 @@ const LayoutApp = () => {
                 return [...USER_MENU, ...ADMIN_MENU];
         }
     }, [authState.role]);
+
+    if (isAppLoading) return <Loading fixed />;
 
     return (
         <>

@@ -9,19 +9,12 @@ import { isAppLoadingSelector } from './redux/selectors/app';
 
 import 'antd/dist/antd.css';
 import './styles/index.less';
+import LandingView from './modules/landing';
 
 const App = () => {
-    const isAppLoading = useSelector(isAppLoadingSelector);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getSession);
-    }, []);
-
-    if (isAppLoading) return <Loading fixed />;
-
     return (
         <Routes>
+            <Route path="/" element={<LandingView />} />
             <Route path="/login" element={<LoginView />} />
             <Route path="/*" element={<LayoutApp />} />
         </Routes>
