@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { IMetaFormBuilder } from 'src/components/form/FormBuilder/FormBuilder';
 
 export const metaUserForm: IMetaFormBuilder = {
+    disabled: true,
     fields: [
         {
             name: 'ho_lot',

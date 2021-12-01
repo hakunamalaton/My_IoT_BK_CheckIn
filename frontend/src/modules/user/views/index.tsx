@@ -22,13 +22,11 @@ const UserView = () => {
         }
     }, [state.value, form]);
 
-    if (!state.value) return null;
-
     return (
         <Card title="Thông tin cá nhân">
-            {/* <Form form={form}>
-                <FormBuilder form={form} viewMode meta={metaUserForm} />
-            </Form> */}
+            <Form form={form}>
+                <FormBuilder form={form} meta={metaUserForm} />
+            </Form>
 
             <h3>Địa điểm đã check-in</h3>
             <BaseTable

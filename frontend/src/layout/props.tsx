@@ -1,4 +1,4 @@
-import { IMenu } from '.';
+import { IMenu } from './layout';
 import { ACCOUNT_ROLE } from 'src/constants';
 import { IRoute } from 'src/routes';
 import { lazy } from 'react';
