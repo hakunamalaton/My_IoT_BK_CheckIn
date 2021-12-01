@@ -7,6 +7,7 @@ import './style.less';
 import { Link } from 'react-router-dom';
 import { renderRoutes } from 'src/routes';
 import logo from 'src/assets/images/logo.png';
+import { useWindowSize } from 'src/hooks/useWindowSize';
 
 const { Header, Sider, Content } = Layout;
 
@@ -28,6 +29,7 @@ export type IMenu = {
 const LayoutApp = () => {
     const { authState } = useAuth();
     const [isCollapsed, setIsCollapsed] = useState(false);
+    const windowSize = useWindowSize();
 
     const MENU = useMemo(() => {
         switch (authState.role) {
@@ -77,7 +79,14 @@ const LayoutApp = () => {
                 >
                     <Menu mode="inline" defaultSelectedKeys={[MENU[0]?.id]}>
                         {MENU.map(menu => (
-                            <Menu.Item onClick={toggleSider} key={menu.id}>
+                            <Menu.Item
+                                onClick={() => {
+                                    if (windowSize.width < 768) {
+                                        toggleSider();
+                                    }
+                                }}
+                                key={menu.id}
+                            >
                                 <Link to={menu.path || ''}>{menu.name}</Link>
                             </Menu.Item>
                         ))}
@@ -87,10 +96,7 @@ const LayoutApp = () => {
                     <Content
                         className="site-layout-background"
                         style={{
-                            // background: '#fff',
                             margin: '24px 16px',
-
-                            // padding: 24,
                             minHeight: 280,
                         }}
                     >

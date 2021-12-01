@@ -14,18 +14,20 @@ module.exports = {
         {
             plugin: {
                 overrideWebpackConfig: ({ webpackConfig }) => {
-                    const index = webpackConfig.plugins
-                        .map(i => i.constructor.name)
-                        .findIndex(i => i === 'MiniCssExtractPlugin');
+                    if (IS_PRODUCTION) {
+                        const index = webpackConfig.plugins
+                            .map(i => i.constructor.name)
+                            .findIndex(i => i === 'MiniCssExtractPlugin');
 
-                    webpackConfig.plugins[
-                        index
-                    ].options.filename = `static/${suffix}css/${version}/main.[hash:8].css`;
-                    webpackConfig.plugins[
-                        index
-                    ].options.chunkFilename = `static/${suffix}css/${version}/[name].[contenthash:8].css`;
-                    webpackConfig.plugins.push(new AntdDayjsWebpackPlugin());
-                    // webpackConfig.plugins.push(new BundleAnalyzerPlugin());
+                        webpackConfig.plugins[
+                            index
+                        ].options.filename = `static/${suffix}css/${version}/main.[hash:8].css`;
+                        webpackConfig.plugins[
+                            index
+                        ].options.chunkFilename = `static/${suffix}css/${version}/[name].[contenthash:8].css`;
+                        webpackConfig.plugins.push(new AntdDayjsWebpackPlugin());
+                        // webpackConfig.plugins.push(new BundleAnalyzerPlugin());
+                    }
                     return webpackConfig;
                 },
             },
