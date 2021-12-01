@@ -14,8 +14,16 @@ module.exports = {
         {
             plugin: {
                 overrideWebpackConfig: ({ webpackConfig }) => {
-                    webpackConfig.plugins[6].options.filename = `static/${suffix}css/${version}/main.[hash:8].css`;
-                    webpackConfig.plugins[6].options.chunkFilename = `static/${suffix}css/${version}/[name].[contenthash:8].css`;
+                    const index = webpackConfig.plugins
+                        .map(i => i.constructor.name)
+                        .findIndex(i => i === 'MiniCssExtractPlugin');
+
+                    webpackConfig.plugins[
+                        index
+                    ].options.filename = `static/${suffix}css/${version}/main.[hash:8].css`;
+                    webpackConfig.plugins[
+                        index
+                    ].options.chunkFilename = `static/${suffix}css/${version}/[name].[contenthash:8].css`;
                     webpackConfig.plugins.push(new AntdDayjsWebpackPlugin());
                     // webpackConfig.plugins.push(new BundleAnalyzerPlugin());
                     return webpackConfig;
@@ -26,10 +34,10 @@ module.exports = {
     ],
 
     babel: {
-        loaderOptions: (babelLoaderOptions) => {
+        loaderOptions: babelLoaderOptions => {
             if (IS_PRODUCTION) {
                 babelLoaderOptions.plugins = [
-                    ...babelLoaderOptions.plugins,
+                    ...(babelLoaderOptions.plugins || []),
                     ['transform-remove-console', { exclude: ['error', 'warn'] }],
                 ];
             }

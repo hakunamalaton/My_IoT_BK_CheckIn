@@ -17,7 +17,6 @@ const UserView = () => {
 
     useEffect(() => {
         if (state.value) {
-            console.log('state.value', state.value);
             form.setFieldsValue({ ...state.value });
         }
     }, [state.value, form]);
