@@ -2,9 +2,9 @@ import { Layout, Menu } from 'antd';
 import useAuth from 'src/hooks/useAuth';
 import { ReactNode, useCallback, useMemo, useState } from 'react';
 import { ACCOUNT_ROLE } from 'src/constants';
-import { USER_MENU, ADMIN_MENU, mainRoutes } from './props';
+import { USER_MENU, ADMIN_MENU, mainRoutes, ROUTE } from './props';
 import './style.less';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { renderRoutes } from 'src/routes';
 import logo from 'src/assets/images/logo.png';
 import { useWindowSize } from 'src/hooks/useWindowSize';
@@ -31,7 +31,7 @@ const LayoutApp = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const windowSize = useWindowSize();
 
-    const MENU = useMemo(() => {
+    const MENU: IMenu[] = useMemo(() => {
         switch (authState.role) {
             // case ACCOUNT_ROLE.USER:
             //     return USER_MENU;
@@ -42,17 +42,25 @@ const LayoutApp = () => {
         }
     }, [authState.role]);
 
+    const location = useLocation();
+
+    const selectedKeys = useMemo(() => {
+        return [MENU.find(i => i.path === location.pathname)?.id || ''];
+    }, [location.pathname, MENU]);
+
     const toggleSider = useCallback(() => setIsCollapsed(state => !state), []);
 
     return (
         <>
             <Header className="site-layout-header">
-                <div className="layout-logo">
-                    <div className="logo-wrapper image">
-                        <img src={logo} alt="logo" />
+                <Link to={ROUTE.DASHBOARD}>
+                    <div className="layout-logo">
+                        <div className="logo-wrapper image">
+                            <img src={logo} alt="logo" />
+                        </div>
+                        <span> Thông tin Vaccine</span>
                     </div>
-                    <span> Thông tin Vaccine</span>
-                </div>
+                </Link>
                 <div
                     className="layout-account"
                     style={{
@@ -77,7 +85,7 @@ const LayoutApp = () => {
                     onCollapse={toggleSider}
                     collapsed={isCollapsed}
                 >
-                    <Menu mode="inline" defaultSelectedKeys={[MENU[0]?.id]}>
+                    <Menu mode="inline" selectedKeys={selectedKeys}>
                         {MENU.map(menu => (
                             <Menu.Item
                                 onClick={() => {

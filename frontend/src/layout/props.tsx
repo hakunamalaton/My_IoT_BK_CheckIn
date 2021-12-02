@@ -14,8 +14,8 @@ export const ROUTE = {
     SEARCH: '/search',
     ADVANCED_SEARCH: '/advancedSearch',
     SETTING: '/setting',
+    DASHBOARD: '/dashboard',
     IOT: '/iot',
-    DASHBOARD: '/',
 };
 
 export const USER_MENU: IMenu[] = [
@@ -70,6 +70,11 @@ export const mainRoutes: IRoute[] = [
         path: ROUTE.CENSOR_FEEDBACK,
         name: 'feedback',
         component: FeedbackModule,
+    },
+    {
+        path: ROUTE.USER_INFO,
+        name: 'userInfo',
+        component: UserModule,
     },
     {
         path: ROUTE.USER_INFO,
