@@ -28,7 +28,7 @@
     "scripts": {
         "start": "craco start",
         "start:prod": "env-cmd -f .env.production yarn start",
-        "build:base": "craco build && yarn build:bundle",
+        "build:base": "craco build",
         "build": "env-cmd -f .env.production yarn build:base",
         "build:dev": "env-cmd -f .env.development yarn build:base",
         "build:bundle": "node ./build-bundle.js",
