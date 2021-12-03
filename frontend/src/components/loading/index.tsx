@@ -1,13 +1,15 @@
+import React from 'react';
 import './style.less';
 
-interface LoadingProps {
+interface LoadingProps extends React.HTMLAttributes<HTMLDivElement> {
     fixed?: boolean;
 }
-const Loading: React.FC<LoadingProps> = (props) => {
-    const { fixed } = props;
+
+const Loading: React.FC<LoadingProps> = props => {
+    const { fixed, ...rest } = props;
 
     return (
-        <div className={`loading-wrapper ${fixed ? 'is-fixed' : ''}`}>
+        <div className={`loading-wrapper ${fixed ? 'is-fixed' : ''}`} {...rest}>
             <div className="shapes-5"></div>
         </div>
     );

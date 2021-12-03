@@ -7,6 +7,7 @@ import Component404 from 'src/modules/common/views/Component404';
 const FeedbackModule = lazy(() => import('../modules/feedback'));
 const DashboardModule = lazy(() => import('../modules/dashboard'));
 const UserModule = lazy(() => import('../modules/user'));
+const SearchModule = lazy(() => import('../modules/search'));
 
 export const ROUTE = {
     USER_INFO: '/userInfo',
@@ -75,6 +76,11 @@ export const mainRoutes: IRoute[] = [
         path: ROUTE.USER_INFO,
         name: 'userInfo',
         component: UserModule,
+    },
+    {
+        path: ROUTE.SEARCH,
+        name: 'userInfo',
+        component: SearchModule,
     },
     {
         path: ROUTE.USER_INFO,
