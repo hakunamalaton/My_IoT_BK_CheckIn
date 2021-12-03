@@ -11,10 +11,8 @@ interface AuthProps {
 
 function AuthRoute(props: AuthProps) {
     const { isLogged } = useAuth();
-    // console.log('props', props);
 
     if (!isLogged) {
-        // console.log('Not logged', isLogged);
         return (
             <Navigate
                 to={{

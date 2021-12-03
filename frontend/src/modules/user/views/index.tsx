@@ -4,13 +4,11 @@ import Card from 'src/components/card';
 import FormBuilder from 'src/components/form/FormBuilder';
 import UserService from '../service';
 import { columnsUserHistory, metaUserForm } from './props';
-import { Alert, Button, Col, Form, Row, Skeleton } from 'antd';
+import { Alert, Button, Form } from 'antd';
 import BaseTable from 'src/components/tables';
 import useDialog from 'src/hooks/useDialog';
 import SubmittedModal from './SubmittedModal';
-import SkeletonButton from 'antd/lib/skeleton/Button';
 import './style.less';
-import Loading from 'src/components/loading';
 import { normalizeUserEdit } from '../utils';
 
 const UserView = () => {
@@ -64,14 +62,16 @@ const UserView = () => {
                         </Button>
                     )}
 
-                    <Button
-                        loading={state.loading}
-                        disabled={isReviewing || (isEditedMode && !isTouched)}
-                        onClick={handleEditInfo}
-                        type="primary"
-                    >
-                        {isEditedMode ? 'Gửi duyệt' : 'Sửa thông tin'}
-                    </Button>
+                    {state.value && (
+                        <Button
+                            loading={state.loading}
+                            disabled={isReviewing || (isEditedMode && !isTouched)}
+                            onClick={handleEditInfo}
+                            type="primary"
+                        >
+                            {isEditedMode ? 'Gửi duyệt' : 'Sửa thông tin'}
+                        </Button>
+                    )}
                 </div>
             }
             title="Thông tin cá nhân"

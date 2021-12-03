@@ -13,6 +13,8 @@ import {
     DatePicker,
 } from 'antd';
 
+const { RangePicker } = DatePicker;
+
 const isObject = item => typeof item === 'object' && item !== null;
 
 const mapOptions = options => {
@@ -44,6 +46,7 @@ FormBuilder.defineWidget('password', Input.Password);
 FormBuilder.defineWidget('textarea', Input.TextArea);
 FormBuilder.defineWidget('number', InputNumber);
 FormBuilder.defineWidget('date-picker', DatePicker);
+FormBuilder.defineWidget('range-picker', RangePicker);
 FormBuilder.defineWidget('radio', Radio);
 FormBuilder.defineWidget('search', Input.Search);
 FormBuilder.defineWidget('autocomplete', AutoComplete);

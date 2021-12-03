@@ -8,13 +8,15 @@ const FeedbackModule = lazy(() => import('../modules/feedback'));
 const DashboardModule = lazy(() => import('../modules/dashboard'));
 const UserModule = lazy(() => import('../modules/user'));
 const SearchModule = lazy(() => import('../modules/search'));
+const AdvancedSearchModule = lazy(() => import('../modules/advancedSearch'));
+const IoTModule = lazy(() => import('../modules/iot'));
 
 export const ROUTE = {
     USER_INFO: '/userInfo',
     CENSOR_FEEDBACK: '/feedback',
     SEARCH: '/search',
     ADVANCED_SEARCH: '/advancedSearch',
-    SETTING: '/setting',
+    CONFIG: '/config',
     DASHBOARD: '/dashboard',
     IOT: '/iot',
 };
@@ -57,14 +59,14 @@ export const ADMIN_MENU: IMenu[] = [
         name: 'Quản lý cấu hình',
         id: '24',
         roles: [ACCOUNT_ROLE.ADMIN],
-        path: ROUTE.SETTING,
+        path: ROUTE.CONFIG,
     },
 ];
 
 export const mainRoutes: IRoute[] = [
     {
         path: ROUTE.DASHBOARD,
-        name: 'Dashboard',
+        name: 'dashboard',
         component: DashboardModule,
     },
     {
@@ -79,13 +81,18 @@ export const mainRoutes: IRoute[] = [
     },
     {
         path: ROUTE.SEARCH,
-        name: 'userInfo',
+        name: 'search',
         component: SearchModule,
     },
     {
-        path: ROUTE.USER_INFO,
-        name: 'userInfo',
-        component: UserModule,
+        path: ROUTE.IOT,
+        name: 'iot',
+        component: IoTModule,
+    },
+    {
+        path: ROUTE.ADVANCED_SEARCH,
+        name: 'advancedSearch',
+        component: AdvancedSearchModule,
     },
     {
         path: '*',
