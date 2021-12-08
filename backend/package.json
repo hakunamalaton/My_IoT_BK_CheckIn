@@ -1,0 +1,50 @@
+{
+  "name": "bk_iot_checkin",
+  "version": "1.0.0",
+  "description": "Repo API & Back-end for BK_IoT_Checkin",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimodayne/vaccination-info-management-system.git"
+  },
+  "keywords": [
+    "BachKhoa",
+    "IoT",
+    "Ho",
+    "Chi",
+    "Minh",
+    "Check",
+    "In",
+    "Temperature"
+  ],
+  "author": "Lam Thien Toan, Le Dinh Luan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimodayne/vaccination-info-management-system/issues"
+  },
+  "homepage": "https://github.com/jimodayne/vaccination-info-management-system#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.0.5"
+  }
+}
