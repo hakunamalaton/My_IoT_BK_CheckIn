@@ -10,6 +10,7 @@ const UserModule = lazy(() => import('../modules/user'));
 const SearchModule = lazy(() => import('../modules/search'));
 const AdvancedSearchModule = lazy(() => import('../modules/advancedSearch'));
 const IoTModule = lazy(() => import('../modules/iot'));
+const ConfigModule = lazy(() => import('../modules/config'));
 
 export const ROUTE = {
     USER_INFO: '/userInfo',
@@ -88,6 +89,11 @@ export const mainRoutes: IRoute[] = [
         path: ROUTE.IOT,
         name: 'iot',
         component: IoTModule,
+    },
+    {
+        path: ROUTE.CONFIG,
+        name: 'config',
+        component: ConfigModule,
     },
     {
         path: ROUTE.ADVANCED_SEARCH,
