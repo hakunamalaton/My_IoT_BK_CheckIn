@@ -3,11 +3,11 @@ import { DOMAIN_API_URL } from 'src/constants/';
 import { ResponseData } from 'src/constants/interface';
 
 export function fetch(url, params?: {}, options?: {}, timeOut?: 10): Promise<ResponseData<any>> {
-    const zf_id = document.cookie.replace(/(?:(?:^|.*;\s*)zf_id\s*\=\s*([^;]*).*$)|^.*$/, '$1');
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/, '$1');
     const exOptions = extend(
         {
             credentials: 'include',
-            headers: zf_id ? { authorization: zf_id } : {},
+            headers: token ? { authorization: token } : {},
         },
         options
     );
