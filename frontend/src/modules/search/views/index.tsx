@@ -2,11 +2,13 @@ import { Form, Button, Input } from 'antd';
 import { useCallback, useEffect } from 'react';
 import { useAsyncFn } from 'react-use';
 import Card from 'src/components/card';
+import BaseFilter from 'src/components/filter';
 import FormBuilder from 'src/components/form/FormBuilder';
 import Loading from 'src/components/loading';
 import BaseTable from 'src/components/tables';
 import { columnsUserHistory, metaUserForm } from 'src/modules/user/views/props';
 import SearchService from '../service';
+import { metaSearchProps } from './props';
 
 const SearchView = () => {
     const [form] = Form.useForm();
@@ -26,27 +28,7 @@ const SearchView = () => {
 
     return (
         <Card title="Tra cứu cá nhân">
-            <Form style={{ marginBottom: 24 }} onFinish={handleSearch} layout="inline" form={form}>
-                <Form.Item
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng nhập mã số SV/CB hoặc CCCD/CMND',
-                        },
-                    ]}
-                    name="keyword"
-                >
-                    <Input
-                        style={{ width: '20rem' }}
-                        placeholder="Nhập mã số SV/CB hoặc CCCD/CMND"
-                    />
-                </Form.Item>
-                <Form.Item>
-                    <Button loading={state.loading} htmlType="submit" type="primary">
-                        Tìm kiếm
-                    </Button>
-                </Form.Item>
-            </Form>
+            <BaseFilter meta={metaSearchProps} isLoading={state.loading} onFilter={handleSearch} />
 
             {!state.value && !state.loading ? null : state.loading ? (
                 <Loading style={{ marginTop: 80 }} />

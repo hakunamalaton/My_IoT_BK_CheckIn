@@ -30,8 +30,8 @@ const Card: React.FC<CardProps> = props => {
 
     return (
         <div className={`v-card  ${className} ${theme ? 'is-' + theme : ''} `} {...rest}>
-            <div className="v-card__head">
-                {(title || extra) && (
+            {(title || extra) && (
+                <div className="v-card__head">
                     <Row
                         justify={justify}
                         style={{ height: '100%' }}
@@ -41,8 +41,8 @@ const Card: React.FC<CardProps> = props => {
                         <h3>{title}</h3>
                         {extra}
                     </Row>
-                )}
-            </div>
+                </div>
+            )}
             <div className="v-card__body">{children}</div>
         </div>
     );

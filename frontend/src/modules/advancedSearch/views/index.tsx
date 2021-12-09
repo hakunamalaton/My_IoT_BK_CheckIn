@@ -8,11 +8,16 @@ import { columnsUserHistory } from 'src/modules/user/views/props';
 import AdvancedSearchService from '../service';
 import { data, metaFilterAdvancedSearch } from './props';
 import { CSVLink } from 'react-csv';
+import BaseFilter from 'src/components/filter';
+import DetailModal from 'src/modules/feedback/views/DetailModal';
+import { useDispatch } from 'react-redux';
+import useDialog from 'src/hooks/useDialog';
 
 const AdvancedSearch = () => {
     const [form] = Form.useForm();
     const [formResult] = Form.useForm();
     const [state, callback] = useAsyncFn(AdvancedSearchService.getUser);
+    const [visible, { handleClose, handleOpen }] = useDialog();
 
     const handleSearch = useCallback(values => {
         const { keyword } = values;
@@ -27,15 +32,11 @@ const AdvancedSearch = () => {
 
     return (
         <Card title="Tra cứu nâng cao">
-            <Form style={{ marginBottom: 24 }} onFinish={handleSearch} layout="inline" form={form}>
-                <FormBuilder meta={metaFilterAdvancedSearch} form={form} />
-
-                <Form.Item>
-                    <Button loading={state.loading} htmlType="submit" type="primary">
-                        Tìm kiếm
-                    </Button>
-                </Form.Item>
-            </Form>
+            <BaseFilter
+                meta={metaFilterAdvancedSearch}
+                onFilter={handleSearch}
+                isLoading={state.loading}
+            />
 
             <div
                 className="is-flex"
@@ -64,6 +65,7 @@ const AdvancedSearch = () => {
                 }}
                 columns={columnsUserHistory}
             />
+            <DetailModal visible={visible} closeModal={handleClose} />
         </Card>
     );
 };
