@@ -1,16 +1,19 @@
 import { Button } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import logo from 'src/assets/images/logo.png';
 import { ReactComponent as SocialDistancing } from 'src/assets/images/social_distancing.svg';
+import { ROUTE } from 'src/layout/props';
 import './style.less';
 
 const LandingView = () => {
+    const navigate = useNavigate();
     return (
         <div className="landing-wrapper">
             <div className="container header ">
                 <div className="logo-wrapper">
                     <img src={logo} alt="logo" />
                 </div>
-                <Button size="large" type="primary">
+                <Button onClick={() => navigate(ROUTE.DASHBOARD)} size="large" type="primary">
                     Truy cập ứng dụng
                 </Button>
             </div>

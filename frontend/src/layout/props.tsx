@@ -13,6 +13,8 @@ const IoTModule = lazy(() => import('../modules/iot'));
 const ConfigModule = lazy(() => import('../modules/config'));
 
 export const ROUTE = {
+    LOGIN: '/login',
+    REGISTER: '/register',
     USER_INFO: '/userInfo',
     CENSOR_FEEDBACK: '/feedback',
     SEARCH: '/search',

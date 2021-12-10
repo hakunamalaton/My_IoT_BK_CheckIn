@@ -6,7 +6,8 @@ import Loading from 'src/components/loading';
 import { getSession } from 'src/redux/actions/auth';
 import { isAppLoadingSelector } from 'src/redux/selectors/app';
 
-const LoginView = lazy(() => import('../modules/login'));
+const LoginView = lazy(() => import('../modules/login/views/login'));
+const RegisterView = lazy(() => import('../modules/login/views/register'));
 const LayoutApp = lazy(() => import('./layout'));
 
 const AppWrapper = () => {
@@ -22,6 +23,7 @@ const AppWrapper = () => {
     return (
         <Routes>
             <Route path="/login" element={<LoginView />} />
+            <Route path="/register" element={<RegisterView />} />
             <Route path="/*" element={<LayoutApp />} />
         </Routes>
     );

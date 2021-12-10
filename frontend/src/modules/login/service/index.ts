@@ -18,12 +18,12 @@ const AuthService = {
     getSession: async () => {
         const session = await new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve({
-                    userName: 'Thinh Tran',
-                    userId: 1659999,
-                    role: ACCOUNT_ROLE.ADMIN,
-                });
-                // reject({ msg: 'Session expired' });
+                // resolve({
+                //     userName: 'Thinh Tran',
+                //     userId: 1659999,
+                //     role: ACCOUNT_ROLE.ADMIN,
+                // });
+                reject({ msg: 'Session expired' });
             }, 1000);
         });
 
