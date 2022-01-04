@@ -1,0 +1,69 @@
+{
+    "name": "frontend",
+    "version": "0.1.2",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
+        "@types/jest": "^26.0.15",
+        "@types/node": "^12.0.0",
+        "@types/react": "^17.0.0",
+        "@types/react-dom": "^17.0.0",
+        "antd": "^4.17.1",
+        "classnames": "^2.3.1",
+        "craco-less": "^1.20.0",
+        "dayjs": "^1.10.7",
+        "nanobar": "^0.4.2",
+        "react": "^17.0.2",
+        "react-csv": "^2.0.3",
+        "react-dom": "^17.0.2",
+        "react-redux": "^7.2.6",
+        "react-router-dom": "^6.0.2",
+        "react-scripts": "4.0.3",
+        "react-use": "^17.3.1",
+        "redux-thunk": "^2.4.0",
+        "typescript": "^4.1.2",
+        "web-vitals": "^1.0.1"
+    },
+    "scripts": {
+        "start": "craco start",
+        "start:prod": "env-cmd -f .env.production yarn start",
+        "build:base": "craco build",
+        "build": "env-cmd -f .env.production yarn build:base",
+        "build:dev": "env-cmd -f .env.development yarn build:base",
+        "build:bundle": "node ./build-bundle.js",
+        "test": "craco test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@craco/craco": "^6.1.1",
+        "@types/react-router-dom": "^5.1.7",
+        "antd-dayjs-webpack-plugin": "^1.0.6",
+        "babel-plugin-transform-remove-console": "^6.9.4",
+        "craco-antd": "^1.19.0",
+        "customize-cra": "^1.0.0",
+        "dotenv": "^9.0.2",
+        "env-cmd": "^10.1.0",
+        "mini-css-extract-plugin": "^1.6.0",
+        "webpackbar": "^5.0.0-3"
+    }
+}
