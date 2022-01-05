@@ -1,12 +1,7 @@
-POST http://localhost:3000/post_checkin_info/v1
+POST http://localhost:3000/login/v1
 Content-Type: application/json
 
 { 
-"cb_sv_ma": "182235" , 
-"cmnd_so" : "221009", 
-"thoi_gian_check_in":  "2021-12-25 17:00:00", 
-"vacxin_sl_mui": 2, 
-"nhietdo": 36.5, 
-"khautrang": 1, 
-"iot_bot_id": 1 
+"username" : "toanlaban",
+"password" : "123"
 }
