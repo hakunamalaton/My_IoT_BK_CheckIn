@@ -1,13 +1,6 @@
 import Card from 'src/components/card';
 import BaseFilter from 'src/components/filter';
-import {
-    barChartCardData,
-    barChartData,
-    metaDashboardFilter,
-    option,
-    pieCardData,
-    pieData,
-} from './props';
+import { barChartCardData, barChartData, metaDashboardFilter, pieCardData, pieData } from './props';
 import { Bar, Pie } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
