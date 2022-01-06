@@ -7,13 +7,19 @@ export const metaDashboardFilter: IMetaFormBuilder = {
     fields: [
         {
             key: 'startDate',
-            label: 'Từ ngày',
             widget: 'date-picker',
+            widgetProps: {
+                placeholder: 'Từ ngày',
+                style: { width: '12rem' },
+            },
         },
         {
             key: 'endDate',
-            label: 'Đến ngày',
             widget: 'date-picker',
+            widgetProps: {
+                placeholder: 'Đến ngày',
+                style: { width: '12rem' },
+            },
         },
     ],
 };
@@ -56,24 +62,6 @@ export const barChartData: ChartData<'bar', number[], string> = {
             backgroundColor: COLOR_PALETTE[3],
         },
     ],
-};
-
-export const option: any = {
-    tooltips: {
-        callbacks: {
-            label: function (tooltipItem, data) {
-                var dataset = data.datasets[tooltipItem.datasetIndex];
-                var meta = dataset._meta[Object.keys(dataset._meta)[0]];
-                var total = meta.total;
-                var currentValue = dataset.data[tooltipItem.index];
-                var percentage = parseFloat(((currentValue / total) * 100).toFixed(1));
-                return currentValue + ' (' + percentage + '%)';
-            },
-            title: function (tooltipItem, data) {
-                return data.labels[tooltipItem[0].index];
-            },
-        },
-    },
 };
 
 export const barChartCardData: ChartData<'bar', number[], string> = {

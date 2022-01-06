@@ -41,7 +41,7 @@ const DashboardView = () => {
             <BaseFilter meta={metaDashboardFilter} onFilter={handleFilter} isLoading={false} />
             <Row gutter={40}>
                 <Col span={8}>
-                    <Pie data={pieData} options={option} />
+                    <Pie data={pieData} />
                 </Col>
                 <Col span={16}>
                     <Bar data={barChartData} />
@@ -52,12 +52,12 @@ const DashboardView = () => {
                     <Bar data={barChartData} />
                 </Col>
                 <Col span={8}>
-                    <Pie data={pieData} options={option} />
+                    <Pie data={pieData} />
                 </Col>
             </Row>
             <Row gutter={24} style={{ marginTop: 64 }}>
                 <Col span={8}>
-                    <Pie data={pieCardData} options={option} />
+                    <Pie data={pieCardData} />
                 </Col>
                 <Col span={16}>
                     <Bar data={barChartCardData} />
