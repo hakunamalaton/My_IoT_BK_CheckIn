@@ -104,7 +104,7 @@ const LayoutApp = () => {
                     <Content
                         className="site-layout-background"
                         style={{
-                            margin: '24px 16px',
+                            padding: '24px 16px',
                             minHeight: 280,
                         }}
                     >

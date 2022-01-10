@@ -20,7 +20,7 @@ const LoginView = () => {
 
     useEffect(() => {
         if (isLogged) {
-            navigate(location.state || '/');
+            navigate((location.state as string) || '/');
         }
     }, [isLogged]);
 
