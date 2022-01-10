@@ -17,7 +17,6 @@ LoginInfo.loginToken = (send, req) => {
         } else {
             let accessToken = jwt.sign(req, 'ttlam');
             send({ accessToken });
-            jwt.verify(header.split, 'ttlam');
         }
     });
 };

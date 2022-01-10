@@ -94,5 +94,24 @@ Giao diện CRUD Máy IoT  (table iot_bot)
 Role: CBQL
 
 
+# BACKEND
 
+## build
+1 
+After pulling code from git, you must cd to **backend** folder then command **npm install** to install node modules.
 
+2
+In /backend/src/config/db/index.js has some fields such as host, user, password. You should to edit these fields.
+
+3
+In /backedn/src/index.js, the snippet code run on localhost:3000 so you should change these information
+
+## run
+1
+In backend directory, you command **npm start**. Your code then run on the server that you setup in build step. If **Success!** appear in the terminal, you connect to database successfully.
+
+2
+To test example API and for that code, you can command **https://localhost:3000/get_user_info/v1/date=2021-25-12&time=19:00:00** to check for API 1. The host name must be editted to suitable for your code.
+
+3
+After typing, your browser then return an array of object whom visit school after this time.

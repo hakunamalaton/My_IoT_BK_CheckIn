@@ -13,6 +13,9 @@ const UserInfo = function (userinf) {
     this.sdt = userinf.sdt;
     this.diachi_lienlac = userinf.diachi_lienlac;
     this.last_updated_time = userinf.last_updated_time;
+    this.ngaysinh = userinf.last_updated_time;
+    this.f0_khoibenh = userinf.f0_khoibenh;
+    this.email = userinf.email;
 };
 
 UserInfo.getUserInfo = (send, req) => {
@@ -88,6 +91,19 @@ UserInfo.getUserInfo = (send, req) => {
             data: res,
         };
         send(retObj);
+    });
+};
+
+UserInfo.postUserInfo = (send, req) => {
+    let postInfoQuery = 'INSERT into user_info SET ?';
+    console.log(req);
+    mySql.query(postInfoQuery, req, (err, res) => {
+        if (err) {
+            //send({"code":"35"})
+            console.log(err);
+        } else {
+            console.log('Successfully!');
+        }
     });
 };
 

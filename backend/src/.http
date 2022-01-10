@@ -1,7 +1,1 @@
-POST http://localhost:3000/login/v1
-Content-Type: application/json
-
-{ 
-"username" : "toanlaban",
-"password" : "123"
-}
+GET http://localhost:3000/export_statis_checkin_info/v2/startDate=2021-12-24&endDate=2021-12-28

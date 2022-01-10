@@ -5,3 +5,9 @@ exports.getUserInfo = (req, res) => {
 
     UserInfo.getUserInfo(result, req.params.time);
 };
+
+exports.postUserInfo = (req, res) => {
+    const result = (data) => res.send(data);
+
+    UserInfo.postUserInfo(result, req.body);
+};

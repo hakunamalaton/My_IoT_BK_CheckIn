@@ -11,6 +11,22 @@ const CheckinInfo = function (checkInf) {
     this.iot_bot_id = checkInf.iot_bot_id;
 };
 
+CheckinInfo.exportStatis = (send, req) => {
+    let quantityQuery =
+        'SELECT cb_sv_flag, COUNT(cb_sv_flag) as total FROM user_info, checkin_info WHERE user_info.id = user_info_id \
+    AND checkin_time BETWEEN ? AND ? \
+    GROUP BY cb_sv_flag';
+
+    mySql.query(quantityQuery, [req.startDate, req.endDate], (err, res) => {
+        if (err) {
+            console.log('loi');
+        } else {
+            send(res);
+            //console.log("done")
+        }
+    });
+};
+
 CheckinInfo.postCheckInInfo = (send, req) => {
     let checkQuery = 'SELECT id FROM user_info WHERE cmnd_so = ?';
 
